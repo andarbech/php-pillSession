@@ -30,7 +30,9 @@
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Sing Up</button>
+                    <button class="btn btn-outline-success my-2 my-sm-0">
+                        <a href="/assembler/php-pillSession/signup.php">Sing Up</a>
+                    </button>
                 </form>
             </div>
         </nav>

@@ -30,8 +30,9 @@ echo "</pre>";
     </form>
     <div class="dropdown-divider"></div>
     <div>
-        <a class="dropdown-item" href="#">New around here? Sign up</a>
-        <a class="dropdown-item" href="#">Forgot password?</a>
+    <a >Sing Up</a>
+        <a class="dropdown-item" href="/assembler/php-pillSession/signup.php">New around here? Sign up</a>
+        <a class="dropdown-item" href="#">Forgot password? te jodiste :( no me dio tiempo</a>
     </div>
 </div>
 
