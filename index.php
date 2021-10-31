@@ -1,12 +1,39 @@
+<!-- <?php
+
+        // if($_SERVER["REQUEST_METHOD"]=="POST"){
+        //     //checked value with data
+        //     echo "<pre>";
+        // print_r($_POST);
+        // echo "</pre>";
+        // }
+
+        ?> -->
 <?php
 
-if($_SERVER["REQUEST_METHOD"]=="POST"){
-    //checked value with data
-    echo "<pre>";
-print_r($_POST);
-echo "</pre>";
-}
+include("./clases/connect.php");
+include("./clases/login.php");
+$email = "";
+$password = "";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $login= new Login();
+    $result = $login->evaluate($_POST);
+    if ($result != "") {
+        echo "<div></div>";
+        echo $result;
+    } else {
+        header("Location:index.php");
+        die;
+    }
 
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+
+
+    //checked value with data
+    // echo "<pre>";
+    // print_r($_POST);
+    // echo "</pre>";
+}
 ?>
 <?php require "./Layout/header.php" ?>
 <!-- action="./modules/login.php" -->
@@ -30,7 +57,7 @@ echo "</pre>";
     </form>
     <div class="dropdown-divider"></div>
     <div>
-    <a >Sing Up</a>
+        <a>Sing Up</a>
         <a class="dropdown-item" href="/assembler/php-pillSession/signup.php">New around here? Sign up</a>
         <a class="dropdown-item" href="#">Forgot password? te jodiste :( no me dio tiempo</a>
     </div>

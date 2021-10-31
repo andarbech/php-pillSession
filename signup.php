@@ -2,12 +2,22 @@
 
 include("./clases/connect.php");
 include("./clases/signup.php");
+$email = "";
+$password = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $signup = new Signup();
     $result = $signup->evaluate($_POST);
     if ($result != "") {
+        echo "<div></div>";
         echo $result;
+    } else {
+        header("Location:index.php");
+        die;
     }
+
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+
 
     //checked value with data
     // echo "<pre>";
@@ -51,11 +61,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form class="px-4 py-3" action="/assembler/php-pillSession/signup.php" method="POST">
             <div class="form-group">
                 <label for="exampleDropdownFormEmail1">Email address</label>
-                <input name="email" type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+                <input name="email" type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="adriancito@email.com">
             </div>
             <div class="form-group">
                 <label for="exampleDropdownFormPassword1">Password</label>
-                <input name="password" type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+                <input name="password" type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="1234">
             </div>
             <button type="submit" class="btn btn-primary">Registrate lo estas deseando </button>
         </form>

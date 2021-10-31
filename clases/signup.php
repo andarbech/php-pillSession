@@ -26,24 +26,26 @@ class Signup
 
     public function createUser($data)
     {
-        $id = $data["id"];
+        // $id = $data["id"];
         $email = $data["email"];
         $password = $data["password"];
-        $date = $data["date"];
+        // $date = $data["date"];
 
         //create funtions
-        $url_address = $this->createUserId();
-        $userId = $this->createUrl();
-        
-        $query = "INSERT INTO
-        users(id,userId,email,password,url_address,date) 
-        VALUES (
-        '$id,'$userId','$email','$password','$url_address','$date')";
-        // $DataBase = new DataBaseUsers();
-        // $DataBase->save_db($query);
-        return $query;
-    }
+        $url_address = $this->createUrl();
+        $userId = $this->createUserId();
 
+        $query = "INSERT INTO
+        users(userId,email,password,url_address) 
+        VALUES (
+
+        '$userId','$email','$password','$url_address')";
+        $DataBase = new DataBaseUsers();
+        $DataBase->save_db($query);
+        // echo $query;
+    }
+    /* query:id, ,date*/
+    /* '$id, ,'$date'*/
     //create a random number 
     private function createUserId()
     {
