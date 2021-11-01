@@ -8,7 +8,7 @@ class DataBaseUsers
     private $host = "localhost";
     private $username = "root";
     private $password = "";
-    private $DataBaseUsers = "myfirst_db";
+    private $DataBaseUsers = "second_db";
     private $port = "3306";
 
     function connect_db()
@@ -27,19 +27,29 @@ class DataBaseUsers
     //query is a param (order ) to send to db
     function read_db($query)
     {
-        $conn = $this->connect_db();
-        $result = mysqli_query($conn, $query);
 
+        $conn = $this->connect_db();
+        // echo "<pre>";
+        // print_r($conn);
+        // echo "</pre>";
+        $result = mysqli_query($conn, $query);
+        // echo "<pre>";
+        // print_r($result);
+        // echo "</pre>";
         if (!$result) {
+            echo "inside into mysql_query";
+            print_r(mysqli_error($conn));
             return false;
         } else {
+            echo "inside else";
             $data = false;
             while ($row = mysqli_fetch_assoc($result)) {
+
                 // this  Array contain Array with data inside de myfirst_db
-                return $data[] = $row;
-                // echo "<pre>";
-                // print_r($row);
-                // echo "</pre>";
+                // return $data[] = $row;
+                echo "<pre>";
+                print_r($row);
+                echo "</pre>";
             }
             return $data;
         }
@@ -64,6 +74,6 @@ $DataBaseUsers = new DataBaseUsers();
 
 // $query = "SELECT * FROM `users`";
 
-// echo "<pre>";
-// print_r(mysqli_info($connection));
-// echo "</pre>";
+echo "<pre>";
+print_r(mysqli_info($connection));
+echo "</pre>";

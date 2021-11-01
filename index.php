@@ -9,36 +9,34 @@
 
         ?> -->
 <?php
-
+session_start();
 include("./clases/connect.php");
 include("./clases/login.php");
 $email = "";
 $password = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $login= new Login();
+    $login = new Login();
     $result = $login->evaluate($_POST);
     if ($result != "") {
-        echo "<div></div>";
+
+        echo "<div>inside</div>";
         echo $result;
+        print_r($_SESSION);
+        // print_r($result);
     } else {
-        header("Location:index.php");
+        header("Location:dashboard.php");
+
+
         die;
     }
 
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-
-
-    //checked value with data
-    // echo "<pre>";
-    // print_r($_POST);
-    // echo "</pre>";
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 }
 ?>
 <?php require "./Layout/header.php" ?>
-<!-- action="./modules/login.php" -->
 <div class="container mt-5">
-    <form class="px-4 py-3" action="./index.php" method="POST">
+    <form class="px-4 py-3" method="POST">
         <div class="form-group">
             <label for="exampleDropdownFormEmail1">Email address</label>
             <input name="email" type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
