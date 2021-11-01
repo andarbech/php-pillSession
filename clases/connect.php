@@ -8,7 +8,7 @@ class DataBaseUsers
     private $host = "localhost";
     private $username = "root";
     private $password = "";
-    private $DataBaseUsers = "myfirst_db";
+    private $DataBaseUsers = "second_db";
     private $port = "3306";
 
     function connect_db()
