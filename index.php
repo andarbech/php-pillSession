@@ -15,15 +15,15 @@ include("./clases/login.php");
 $email = "";
 $password = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $login= new Login();
-    $result = $login->evaluate($_POST);
-    if ($result != "") {
-        echo "<div></div>";
-        echo $result;
-    } else {
-        header("Location:index.php");
-        die;
-    }
+    $login = new Login();
+    $result = $login->evaluate($_POST,$row);
+    // if ($result != "") {
+    //     echo "<div></div>";
+    //     echo $result;
+    // } else {
+    //     header("Location:index.php");
+    //     die;
+    // }
 
     $email = $_POST["email"];
     $password = $_POST["password"];

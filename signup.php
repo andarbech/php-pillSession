@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="exampleDropdownFormPassword1">Password</label>
                 <input name="password" type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="1234">
             </div>
-            <button type="submit" class="btn btn-primary">Registrate lo estas deseando </button>
+            <button type="submit" class="btn btn-primary">Registrate </button>
         </form>
 
     </main>

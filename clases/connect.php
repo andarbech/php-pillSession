@@ -8,7 +8,7 @@ class DataBaseUsers
     private $host = "localhost";
     private $username = "root";
     private $password = "";
-    private $DataBaseUsers = "myfirst_db";
+    private $DataBaseUsers = "second_db";
     private $port = "3306";
 
     function connect_db()
@@ -27,22 +27,36 @@ class DataBaseUsers
     //query is a param (order ) to send to db
     function read_db($query)
     {
+
         $conn = $this->connect_db();
         $result = mysqli_query($conn, $query);
+        // print_r($result);
+        $check = mysqli_num_rows($result);
 
-        if (!$result) {
-            return false;
-        } else {
-            $data = false;
+        if ($check > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
-                // this  Array contain Array with data inside de myfirst_db
-                return $data[] = $row;
-                // echo "<pre>";
+                /* Print all of your data*/
                 // print_r($row);
-                // echo "</pre>";
+                // echo $data["email"];
+                // echo $data["userId"];
+                // echo $data["password"];
+                // echo $data["url_address"];
+                // echo $data["date"];
             }
-            return $data;
         }
+        return  $row;
+        // print_r($result);
+        // if (!$result) {
+        //     return false;
+        // } else {
+        //     echo "insidelse";
+        //     // $data = false;
+        //     while ($row = mysqli_fetch_assoc($result)) {
+        //         // this  Array contain Array with data inside de myfirst_db
+        //         return $data[] = $row;
+        //     }
+        //     print_r($data);
+        // }
     }
 
     function save_db($query)
